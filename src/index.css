@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.btn-primary {
+  @apply rounded-lg bg-cyan-600 px-4 py-2.5 text-sm font-medium capitalize tracking-wider text-white shadow-md transition hover:bg-cyan-700;
+}
+
+.btn-danger {
+  @apply rounded-lg bg-red-600 px-4 py-2.5 text-sm font-medium capitalize tracking-wider text-white shadow-md transition hover:bg-red-700;
+}
