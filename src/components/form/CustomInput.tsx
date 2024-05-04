@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 interface CustomInputProps {
   type: string;
-  label: string;
+  label?: string;
   register: UseFormRegisterReturn;
   error?: FieldError | undefined;
   errorMessages?: Record<string, string> | undefined;

@@ -1,5 +1,6 @@
 import { Middleware, configureStore } from "@reduxjs/toolkit";
 import authReducer from "./reducers/authSlice";
+import quotesReducer from "./reducers/quotesSlice";
 
 const localStorageMiddleware: Middleware<object, any> = ({ getState }) => {
   return (next) => (action) => {
@@ -19,7 +20,7 @@ const reHydrateStore = (): object | undefined => {
 };
 
 export const store = configureStore({
-  reducer: { auth: authReducer },
+  reducer: { auth: authReducer, quotes: quotesReducer },
   preloadedState: reHydrateStore(),
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(localStorageMiddleware),
 });

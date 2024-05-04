@@ -1,7 +1,7 @@
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 
 interface CustomTextareaProps {
-  label: string;
+  label?: string;
   rows: number;
   register: UseFormRegisterReturn;
   error?: FieldError | undefined;

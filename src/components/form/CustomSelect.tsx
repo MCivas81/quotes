@@ -12,7 +12,7 @@ interface CustomSelectProps {
   };
   error: FieldError | undefined;
   options: OptionSelect[];
-  label: string;
+  label?: string;
   disabled?: boolean;
   defaultValue: OptionSelect | null;
   isSubmitted: boolean;
