@@ -32,7 +32,7 @@ const NavBar = () => {
   };
 
   return (
-    <Disclosure as="nav" className="bg-slate-100 shadow">
+    <Disclosure as="nav" className="bg-slate-300 shadow">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Quote } from "../../models/Quote/Quote.model";
+import { RootState } from "../store";
 
 interface QuotesState {
   quotes: Quote[];
@@ -16,9 +17,14 @@ const quotesSlice = createSlice({
     addQuote(state, action: PayloadAction<Quote>) {
       state.quotes.unshift(action.payload);
     },
+    deleteQuote(state, action: PayloadAction<number>) {
+      state.quotes = state.quotes.filter((quote) => quote.id !== action.payload);
+    },
   },
 });
 
-export const { addQuote } = quotesSlice.actions;
+export const { addQuote, deleteQuote } = quotesSlice.actions;
+
+export const selectQuotes = (state: RootState) => state.quotes.quotes;
 
 export default quotesSlice.reducer;

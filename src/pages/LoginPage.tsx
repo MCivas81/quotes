@@ -5,11 +5,7 @@ import { useAppDispatch } from "../redux/hooks";
 import Spinner from "../components/layouts/spinner/Spinner";
 import { login } from "../redux/authAction";
 import logo from "../assets/main-logo.png";
-
-type FormValues = {
-  email: string;
-  password: string;
-};
+import { LoginFormValues } from "../models/Auth/Auth.model";
 
 const LoginPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -21,9 +17,9 @@ const LoginPage: React.FC = () => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitSuccessful, isSubmitting, isValid },
-  } = useForm<FormValues>();
+  } = useForm<LoginFormValues>();
 
-  const onSubmit: SubmitHandler<FormValues> = async (data: FormValues) => {
+  const onSubmit: SubmitHandler<LoginFormValues> = async (data: LoginFormValues) => {
     if (!isValid) return;
 
     setLoading(true);
@@ -56,7 +52,7 @@ const LoginPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen justify-center bg-[url('assets/login-bg.jpg')] bg-fill bg-center bg-no-repeat sm:flex sm:items-center">
+    <div className="bg-fill min-h-screen justify-center bg-[url('assets/login-bg.jpg')] bg-center bg-no-repeat sm:flex sm:items-center">
       <div className="mx-auto w-full max-w-sm space-y-6 px-8 pb-8 pt-12 drop-shadow-md sm:rounded-lg sm:bg-white sm:bg-opacity-30 sm:shadow-md sm:backdrop-blur-md">
         <div className="flex flex-shrink-0 items-center justify-center space-x-4 pb-4">
           <img className="h-20 w-auto" src={logo} alt="company_logo" />
@@ -67,7 +63,6 @@ const LoginPage: React.FC = () => {
             {error}
           </span>
         )}
-
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid gap-4">
             <div className="col-span-1">
@@ -82,8 +77,8 @@ const LoginPage: React.FC = () => {
                 label={"Email"}
                 error={errors.email}
                 errorMessages={{
-                  required: "Campo obbligatorio",
-                  pattern: "Indirizzo email non valido",
+                  required: "Required field",
+                  pattern: "Invalid email format",
                 }}
               />
             </div>
@@ -98,7 +93,7 @@ const LoginPage: React.FC = () => {
                 label={"Password"}
                 error={errors.password}
                 errorMessages={{
-                  required: "Campo obbligatorio",
+                  required: "Required field",
                 }}
               />
             </div>

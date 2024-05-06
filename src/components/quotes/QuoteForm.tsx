@@ -2,11 +2,7 @@ import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import CustomTextarea from "../form/CustomTextarea";
 import CustomInput from "../form/CustomInput";
-
-interface FormValues {
-  quote: string;
-  author: string;
-}
+import { QuoteFormValues } from "../../models/Quote/Quote.model";
 
 const QuoteForm: React.FC<{ onSave: (quote: string, author: string) => void }> = ({ onSave }) => {
   const {
@@ -14,9 +10,9 @@ const QuoteForm: React.FC<{ onSave: (quote: string, author: string) => void }> =
     handleSubmit,
     reset,
     formState: { errors, isSubmitSuccessful, isSubmitting, isValid },
-  } = useForm<FormValues>();
+  } = useForm<QuoteFormValues>();
 
-  const onSubmit: SubmitHandler<FormValues> = (data: FormValues) => {
+  const onSubmit: SubmitHandler<QuoteFormValues> = (data: QuoteFormValues) => {
     if (isValid) {
       console.log(data);
       onSave(data.quote, data.author);
@@ -32,11 +28,11 @@ const QuoteForm: React.FC<{ onSave: (quote: string, author: string) => void }> =
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-4 rounded-md bg-gray-100 p-4 shadow-md"
+      className="space-y-4 rounded-md bg-slate-100 p-4 shadow-md"
     >
       <CustomTextarea
         placeholder="Enter your quote..."
-        rows={3}
+        rows={4}
         register={{
           ...register("quote", {
             required: true,
@@ -44,7 +40,7 @@ const QuoteForm: React.FC<{ onSave: (quote: string, author: string) => void }> =
         }}
         error={errors.quote}
         errorMessages={{
-          required: "Campo obbligatorio",
+          required: "Required field",
         }}
       />
       <CustomInput

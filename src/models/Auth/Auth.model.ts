@@ -11,3 +11,8 @@ export interface AuthState {
   userProfile: UserProfile | null;
   isLoggedIn: boolean;
 }
+
+export interface LoginFormValues {
+  email: string;
+  password: string;
+}

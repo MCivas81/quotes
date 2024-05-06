@@ -1,22 +1,25 @@
 import QuoteForm from "../components/quotes/QuoteForm";
 import QuoteList from "../components/quotes/QuoteList";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { addQuote } from "../redux/reducers/quotesSlice";
-import { RootState } from "../redux/store";
+import { addQuote, deleteQuote, selectQuotes } from "../redux/reducers/quotesSlice";
 
 const QuotingPage: React.FC = () => {
   const dispatch = useAppDispatch();
-  const quotes = useAppSelector((state: RootState) => state.quotes.quotes);
+  const quotes = useAppSelector(selectQuotes);
 
   const handleSaveQuote = (quote: string, author: string) => {
-    dispatch(addQuote({ text: quote, author }));
+    dispatch(addQuote({ id: Date.now(), text: quote, author }));
+  };
+
+  const handleDeleteQuote = (id: number) => {
+    dispatch(deleteQuote(id));
   };
 
   return (
-    <div className="flex min-h-full items-center justify-center bg-gray-200">
-      <div className="w-full max-w-md">
+    <div className="flex min-h-full justify-center bg-white p-4">
+      <div className="w-full max-w-md space-y-4">
         <QuoteForm onSave={handleSaveQuote} />
-        <QuoteList quotes={quotes} />
+        <QuoteList quotes={quotes} onDelete={handleDeleteQuote} />
       </div>
     </div>
   );

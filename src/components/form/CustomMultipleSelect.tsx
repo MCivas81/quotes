@@ -124,7 +124,7 @@ const CustomMultipleSelect: React.FC<CustomMultipleSelectProps> = ({
               </Listbox.Options>
             </Transition>
           </div>
-          {error && <span className="mt-1 block text-xs text-red-500">Campo obbligatorio</span>}
+          {error && <span className="mt-1 block text-xs text-red-500">Required field</span>}
         </>
       )}
     </Listbox>
