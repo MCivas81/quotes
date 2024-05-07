@@ -2,6 +2,7 @@ import { FaQuoteLeft, FaQuoteRight, FaXmark } from "react-icons/fa6";
 import { Quote } from "../../models/Quote/Quote.model";
 import { useEffect, useState } from "react";
 import { debounce } from "lodash";
+import SearchBar from "./SearchBar";
 
 interface QuoteListProps {
   quotes: Quote[];
@@ -12,11 +13,6 @@ const QuoteList: React.FC<QuoteListProps> = ({ quotes, onDelete }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredQuotes, setFilteredQuotes] = useState<Quote[]>(quotes);
   console.log("searchQuery", searchQuery);
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
-    debouncedFilterQuotes(event.target.value);
-  };
 
   const filterQuotes = (query: string) => {
     const filteredQuotes = quotes.filter((quote) => {
@@ -45,16 +41,13 @@ const QuoteList: React.FC<QuoteListProps> = ({ quotes, onDelete }) => {
   return (
     quotes.length > 0 && (
       <div className="px-4 pt-4">
-        <div className="mb-8 flex w-full flex-col justify-between space-y-3 border-b-2 border-cyan-600 pb-3 sm:flex-row sm:items-end sm:space-x-16 sm:space-y-0">
-          <h2 className="text-xl font-semibold">Saved Quotes ({quotes.length}) </h2>
-          <input
-            id="search"
-            type="text"
-            placeholder="Search by keyword..."
-            className="h-9 flex-1 cursor-default rounded-md border-0 bg-white px-3 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600 disabled:opacity-50 sm:text-sm sm:leading-6"
+        <div className="mb-8 flex w-full flex-col justify-between space-y-3 border-b-2 border-cyan-600 pb-3 sm:flex-row sm:items-end sm:space-x-12 sm:space-y-0">
+          <h2 className="text-xl font-semibold">Saved Quotes ({quotes.length})</h2>
+          <SearchBar
             value={searchQuery}
-            onChange={handleSearchChange}
+            onChange={setSearchQuery}
             disabled={quotes.length < 1}
+            onFilter={debouncedFilterQuotes}
           />
         </div>
         <ul className="space-y-5">
