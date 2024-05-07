@@ -17,7 +17,7 @@ const QuotingPage: React.FC = () => {
 
   return (
     <div className="flex min-h-full justify-center bg-white p-4">
-      <div className="w-full max-w-lg space-y-4">
+      <div className="w-full max-w-lg space-y-6">
         <QuoteForm onSave={handleSaveQuote} />
         <QuoteList quotes={quotes} onDelete={handleDeleteQuote} />
       </div>
