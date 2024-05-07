@@ -28,7 +28,7 @@ const QuoteForm: React.FC<{ onSave: (quote: string, author: string) => void }> =
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-4 rounded-md bg-slate-100 p-4 shadow-md"
+      className="space-y-4 rounded-md bg-slate-100 p-4 shadow-md border border-slate-300"
     >
       <CustomTextarea
         placeholder="Enter your quote..."
