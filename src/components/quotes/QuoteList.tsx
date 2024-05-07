@@ -3,6 +3,7 @@ import { Quote } from "../../models/Quote/Quote.model";
 import { useEffect, useState } from "react";
 import { debounce } from "lodash";
 import SearchBar from "./SearchBar";
+import CopyToClipboardButton from "./CopyToClipboardButton";
 
 interface QuoteListProps {
   quotes: Quote[];
@@ -12,7 +13,6 @@ interface QuoteListProps {
 const QuoteList: React.FC<QuoteListProps> = ({ quotes, onDelete }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredQuotes, setFilteredQuotes] = useState<Quote[]>(quotes);
-  console.log("searchQuery", searchQuery);
 
   const filterQuotes = (query: string) => {
     const filteredQuotes = quotes.filter((quote) => {
@@ -28,9 +28,6 @@ const QuoteList: React.FC<QuoteListProps> = ({ quotes, onDelete }) => {
     });
     setFilteredQuotes(filteredQuotes);
   };
-
-  console.log("filteredQuotes", filteredQuotes);
-  console.log("quotes", quotes);
 
   const debouncedFilterQuotes = debounce(filterQuotes, 500);
 
@@ -50,22 +47,23 @@ const QuoteList: React.FC<QuoteListProps> = ({ quotes, onDelete }) => {
             onFilter={debouncedFilterQuotes}
           />
         </div>
-        <ul className="space-y-5">
+        <ul className="space-y-8">
           {filteredQuotes?.map((quote) => (
             <li
               key={quote.id}
-              className="relative flex items-center justify-between rounded-md border border-slate-300 bg-slate-50 p-5 shadow-md"
+              className="relative flex items-center justify-between rounded-md border border-slate-300 bg-slate-50 px-5 py-4 shadow-md"
             >
               <FaQuoteLeft className="absolute -left-2 -top-3 h-7 w-7 text-cyan-600" />
               <FaQuoteRight className="absolute -bottom-3 -right-2 h-7 w-7 text-cyan-600" />
               <FaXmark
-                className="absolute right-2 top-2 h-4 w-4 cursor-pointer"
+                className="absolute right-2 top-2 cursor-pointer"
                 onClick={() => onDelete(quote.id)}
               />
-              <div className="mr-4 space-y-3">
+              <div className="mr-10 space-y-3">
                 <p className="text-gray-800">{quote.text}</p>
                 {quote.author && <p className="italic text-gray-500">- {quote.author}</p>}
               </div>
+              <CopyToClipboardButton quote={quote} />
             </li>
           ))}
         </ul>
