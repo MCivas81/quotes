@@ -21,7 +21,7 @@ const QuoteItem: React.FC<QuoteItemProps> = ({ quote, onDelete }) => {
       </Tooltip>
       <div className="mr-10 space-y-3">
         <p className="text-gray-800">{quote.text}</p>
-        {quote.author && <p className="italic text-gray-500">- {quote.author}</p>}
+        {quote.author && <p className="text-sm italic text-gray-600">- {quote.author}</p>}
       </div>
       <Tooltip message="Copy to clipboard">
         <CopyToClipboardButton quote={quote} />
