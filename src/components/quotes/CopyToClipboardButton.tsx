@@ -1,6 +1,6 @@
 import { FaClipboardCheck, FaRegClipboard } from "react-icons/fa6";
 import { Quote } from "../../models/Quote/Quote.model";
-import useCopyToClipboard from "../../redux/hooks/useCopyToClipboard";
+import useCopyToClipboard from "../../hooks/useCopyToClipboard";
 
 interface CopyToClipboardButtonProps {
   quote: Quote;

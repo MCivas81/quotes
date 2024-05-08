@@ -5,14 +5,14 @@ import Tooltip from "../tooltip/Tooltip";
 
 interface QuoteItemProps {
   quote: Quote;
-  onDelete: (id: number) => void;
+  onDelete: (id: number | string) => void;
 }
 
 const QuoteItem: React.FC<QuoteItemProps> = ({ quote, onDelete }) => {
   return (
-    <li className="relative flex items-center justify-start rounded-md border border-slate-300 bg-slate-50 px-5 py-4 shadow-md">
-      <FaQuoteLeft className="absolute -left-2 -top-3 h-7 w-7 text-cyan-600" />
-      <FaQuoteRight className="absolute -bottom-3 -right-2 h-7 w-7 text-cyan-600" />
+    <li className="relative flex items-center justify-start rounded-md border border-slate-300 bg-slate-50 p-5 shadow-md">
+      <FaQuoteLeft className="absolute -left-3 -top-3 h-6 w-6 text-cyan-600" />
+      <FaQuoteRight className="absolute -bottom-3 -right-3 h-6 w-6 text-cyan-600" />
       <Tooltip message="Delete quote">
         <FaXmark
           className="absolute right-2 top-2 cursor-pointer"

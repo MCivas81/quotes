@@ -1,5 +1,5 @@
 export interface Quote {
-  id: number;
+  id: number | string;
   text: string;
   author: string;
 }
@@ -7,4 +7,10 @@ export interface Quote {
 export interface QuoteFormValues {
   quote: string;
   author: string;
+}
+
+export interface RandomQuote {
+  _id: string;
+  content: string;
+  author?: string;
 }

@@ -31,7 +31,7 @@ const UserProfile = () => {
                 <p className="font-semibold text-gray-900 sm:text-xl">{userProfile.id}</p>
               </div>
               <div className="flex items-center justify-between">
-                <p className="text-gray-700 sm:text-xl">Ruolo:</p>
+                <p className="text-gray-700 sm:text-xl">Role:</p>
                 <p className="font-semibold text-gray-900 sm:text-xl">{userProfile.role}</p>
               </div>
             </div>

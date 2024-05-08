@@ -40,7 +40,7 @@ const NavBar = () => {
               <div className="flex">
                 <div className="-ml-2 mr-4 flex items-center md:hidden">
                   {/* Mobile menu button */}
-                  <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-700">
+                  <Disclosure.Button className="relative inline-flex items-center justify-center p-2 text-gray-700">
                     <span className="absolute -inset-0.5" />
                     <span className="sr-only">Open main menu</span>
                     {open ? (

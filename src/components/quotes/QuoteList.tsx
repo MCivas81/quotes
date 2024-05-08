@@ -3,15 +3,19 @@ import { useEffect, useState } from "react";
 import { debounce } from "lodash";
 import SearchBar from "./SearchBar";
 import QuoteItem from "./QuoteItem";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { deleteQuote, selectQuotes } from "../../redux/reducers/quotesSlice";
+import { BsBlockquoteLeft } from "react-icons/bs";
 
-interface QuoteListProps {
-  quotes: Quote[];
-  onDelete: (id: number) => void;
-}
-
-const QuoteList: React.FC<QuoteListProps> = ({ quotes, onDelete }) => {
+const QuoteList: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const quotes = useAppSelector(selectQuotes);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredQuotes, setFilteredQuotes] = useState<Quote[]>(quotes);
+
+  const handleDeleteQuote = (id: number | string) => {
+    dispatch(deleteQuote(id));
+  };
 
   const filterQuotes = (query: string) => {
     const filteredQuotes = quotes.filter((quote) => {
@@ -37,7 +41,10 @@ const QuoteList: React.FC<QuoteListProps> = ({ quotes, onDelete }) => {
   return (
     <div className="px-4 py-4">
       <div className="mb-10 flex w-full flex-col justify-between space-y-3 border-b-2 border-cyan-600 pb-3 sm:flex-row sm:items-end sm:space-x-12 sm:space-y-0">
-        <h2 className="text-xl font-semibold">Saved Quotes ({quotes.length})</h2>
+        <div className="flex items-center space-x-2">
+          <BsBlockquoteLeft className="h-5 w-5"/>
+          <h2 className="text-xl font-semibold">Your list ({quotes.length})</h2>
+        </div>
         <SearchBar
           value={searchQuery}
           onChange={setSearchQuery}
@@ -47,7 +54,7 @@ const QuoteList: React.FC<QuoteListProps> = ({ quotes, onDelete }) => {
       </div>
       <ul className="space-y-8">
         {filteredQuotes?.map((quote) => (
-          <QuoteItem key={quote.id} quote={quote} onDelete={onDelete} />
+          <QuoteItem key={quote.id} quote={quote} onDelete={handleDeleteQuote} />
         ))}
       </ul>
     </div>
