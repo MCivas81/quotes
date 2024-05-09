@@ -4,7 +4,7 @@ import CopyToClipboardButton from "./CopyToClipboardButton";
 
 interface QuoteItemProps {
   quote: Quote;
-  onDelete: (id: number | string) => void;
+  onDelete: (id: string) => void;
 }
 
 const QuoteItem: React.FC<QuoteItemProps> = ({ quote, onDelete }) => {

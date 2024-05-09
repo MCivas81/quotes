@@ -4,7 +4,7 @@ import { FaChevronDown } from "react-icons/fa6";
 import { BsChatQuote } from "react-icons/bs";
 import { RandomQuote } from "../../models/Quote/Quote.model";
 
-export interface RandomQuoteFlyoutProps {
+interface RandomQuoteFlyoutProps {
   isLoading: boolean;
   error: boolean;
   randomQuote: RandomQuote | null;
@@ -21,8 +21,6 @@ const RandomQuoteFlyout: React.FC<RandomQuoteFlyoutProps> = ({
   idExists,
   fetchQuote,
 }) => {
-  console.log("randomQuote", randomQuote);
-
   return (
     <Popover className="relative mb-4 flex justify-center">
       <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">

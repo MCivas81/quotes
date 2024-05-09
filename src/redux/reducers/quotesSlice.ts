@@ -17,7 +17,7 @@ const quotesSlice = createSlice({
     addQuote(state, action: PayloadAction<Quote>) {
       state.quotes.unshift(action.payload);
     },
-    deleteQuote(state, action: PayloadAction<number | string>) {
+    deleteQuote(state, action: PayloadAction<string>) {
       state.quotes = state.quotes.filter((quote) => quote.id !== action.payload);
     },
   },

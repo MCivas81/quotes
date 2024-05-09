@@ -17,7 +17,7 @@ const QuoteForm: React.FC = () => {
   } = useForm<QuoteFormValues>();
 
   const handleSaveQuote = (quote: string, author: string) => {
-    dispatch(addQuote({ id: Date.now(), text: quote, author }));
+    dispatch(addQuote({ id: Date.now().toString(), text: quote, author }));
   };
 
   const onSubmit: SubmitHandler<QuoteFormValues> = (data: QuoteFormValues) => {

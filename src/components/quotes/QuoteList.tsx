@@ -13,7 +13,7 @@ const QuoteList: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredQuotes, setFilteredQuotes] = useState<Quote[]>(quotes);
 
-  const handleDeleteQuote = (id: number | string) => {
+  const handleDeleteQuote = (id: string) => {
     dispatch(deleteQuote(id));
   };
 
@@ -42,7 +42,7 @@ const QuoteList: React.FC = () => {
     <div className="px-4 py-4">
       <div className="mb-10 flex w-full flex-col justify-between space-y-3 border-b-2 border-cyan-600 pb-3 sm:flex-row sm:items-end sm:space-x-12 sm:space-y-0">
         <div className="flex items-center space-x-2">
-          <BsBlockquoteLeft className="h-5 w-5"/>
+          <BsBlockquoteLeft className="h-5 w-5" />
           <h2 className="text-xl font-semibold">Your list ({quotes.length})</h2>
         </div>
         <SearchBar

@@ -11,7 +11,7 @@ const CopyToClipboardButton: React.FC<CopyToClipboardButtonProps> = ({ quote }) 
 
   return (
     <button
-      className="absolute right-8 top-2 text-cyan-600"
+      className="absolute right-8 top-2"
       onClick={() => {
         let textToCopy = quote.text;
         if (quote.author) {
@@ -21,11 +21,11 @@ const CopyToClipboardButton: React.FC<CopyToClipboardButtonProps> = ({ quote }) 
       }}
     >
       {isCopied ? (
-        <div className="flex items-center">
+        <div className="flex items-center text-cyan-600">
           <FaClipboardCheck className="h-3.5 w-3.5" /> <span className="ml-1 text-xs">Copied!</span>
         </div>
       ) : (
-        <FaRegClipboard className="h-3.5 w-3.5" />
+        <FaRegClipboard className="h-3.5 w-3.5 text-cyan-600 hover:text-cyan-700" />
       )}
     </button>
   );

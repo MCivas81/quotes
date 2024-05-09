@@ -22,7 +22,7 @@ const useCopyToClipboard = () => {
     if (isCopied) {
       const timeout = setTimeout(() => {
         setIsCopied(false);
-      }, 3000);
+      }, 2000);
 
       return () => {
         clearTimeout(timeout);
