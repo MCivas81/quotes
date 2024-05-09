@@ -1,43 +1,25 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { addQuote, selectQuotes } from "../../redux/reducers/quotesSlice";
-import { RandomQuote } from "../../models/Quote/Quote.model";
 import { BsChatQuote } from "react-icons/bs";
+import { RandomQuote } from "../../models/Quote/Quote.model";
 
-const RandomQuoteCard: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const quotes = useAppSelector(selectQuotes);
+export interface RandomQuoteCardProps {
+  isLoading: boolean;
+  error: boolean;
+  randomQuote: RandomQuote | null;
+  handleSaveQuote: (id: string, quote: string, author: string) => void;
+  idExists: boolean;
+  fetchQuote: () => void;
+}
 
-  const [randomQuote, setRandomdQuote] = useState<RandomQuote | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
-
-  const handleSaveQuote = (id: string, quote: string, author: string) => {
-    dispatch(addQuote({ id: id, text: quote, author }));
-  };
-
-  const fetchQuote = async () => {
-    setIsLoading(true);
-    setError(false);
-    try {
-      const response = await axios.get<RandomQuote>("https://api.quotable.io/random");
-      setRandomdQuote(response.data);
-    } catch (error) {
-      setError(true);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchQuote();
-  }, []);
-
-  const idExists = quotes.some((quote) => quote.id === randomQuote?._id);
-
+const RandomQuoteCard: React.FC<RandomQuoteCardProps> = ({
+  isLoading,
+  error,
+  randomQuote,
+  handleSaveQuote,
+  idExists,
+  fetchQuote,
+}) => {
   return (
-    <div className="mb-6 hidden rounded-lg border border-slate-300 bg-white p-6 shadow-md sm:block">
+    <div className="mb-6 rounded-lg border border-slate-300 bg-white p-6 shadow-md">
       <div className="mb-6 flex w-full items-center space-x-2 border-b-2 border-cyan-600 pb-2">
         <BsChatQuote className="h-5 w-5" />
         <h2 className="text-xl font-semibold">Quote of the day</h2>
@@ -66,7 +48,7 @@ const RandomQuoteCard: React.FC = () => {
             }
             disabled={idExists}
           >
-            {idExists ? "Already in the list" : "Add to list"}
+            {idExists ? "Already saved" : "Save"}
           </button>
         )}
         <button
