@@ -20,7 +20,13 @@ const CopyToClipboardButton: React.FC<CopyToClipboardButtonProps> = ({ quote }) 
         copyToClipboard(textToCopy);
       }}
     >
-      {isCopied ? <FaClipboardCheck /> : <FaRegClipboard />}
+      {isCopied ? (
+        <div className="flex items-center">
+          <FaClipboardCheck className="h-3.5 w-3.5" /> <span className="ml-1 text-xs">Copied!</span>
+        </div>
+      ) : (
+        <FaRegClipboard className="h-3.5 w-3.5" />
+      )}
     </button>
   );
 };

@@ -58,8 +58,8 @@ const QuoteForm: React.FC = () => {
           error={errors.author}
         />
         <div className="flex justify-end">
-          <button type="submit" className="btn-primary" disabled={isSubmitting}>
-            Save Quote
+          <button type="submit" className="btn-primary w-1/3" disabled={isSubmitting}>
+            Save
           </button>
         </div>
       </div>

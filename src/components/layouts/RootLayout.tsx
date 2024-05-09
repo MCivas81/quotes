@@ -3,9 +3,9 @@ import NavBar from "./Navbar/NavBar";
 
 export default function RootLayout() {
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="h-screen sm:overflow-hidden">
       <NavBar />
-      <main className="h-[calc(100%-64px)] overflow-auto">
+      <main className="h-[calc(100%-64px)] sm:overflow-auto">
         <Outlet />
       </main>
     </div>

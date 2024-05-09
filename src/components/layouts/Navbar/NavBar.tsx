@@ -38,7 +38,7 @@ const NavBar = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
               <div className="flex">
-                <div className="-ml-2 mr-4 flex items-center md:hidden">
+                <div className="-ml-2 mr-4 flex items-center sm:hidden">
                   {/* Mobile menu button */}
                   <Disclosure.Button className="relative inline-flex items-center justify-center p-2 text-gray-700">
                     <span className="absolute -inset-0.5" />
@@ -53,7 +53,7 @@ const NavBar = () => {
                 <div className="flex flex-shrink-0 items-center">
                   <img className="h-10 w-auto" src={logo} alt="company_logo" />
                 </div>
-                <ul className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
+                <ul className="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-4">
                   {navigation.map((item) => (
                     <NavLink
                       key={item.name}
@@ -61,7 +61,7 @@ const NavBar = () => {
                         classNames(
                           isActive
                             ? "bg-cyan-600 text-white"
-                            : "text-gray-700 hover:bg-gray-700 hover:text-white",
+                            : "text-gray-700 hover:bg-slate-600 hover:text-white",
                           "rounded-md px-3 py-1.5 text-sm font-medium"
                         )
                       }
@@ -73,7 +73,7 @@ const NavBar = () => {
                 </ul>
               </div>
               <div className="flex items-center justify-center">
-                <div className="hidden md:block">
+                <div className="hidden sm:block">
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative">
                     <Menu.Button className="mt-1.5">
@@ -131,7 +131,7 @@ const NavBar = () => {
             </div>
           </div>
 
-          <Disclosure.Panel className="md:hidden">
+          <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
               {navigation.map((item) => (
                 <NavLink
@@ -141,7 +141,7 @@ const NavBar = () => {
                     classNames(
                       isActive
                         ? "bg-cyan-600 text-white"
-                        : "text-gray-700 hover:bg-gray-700 hover:text-white",
+                        : "text-gray-700 hover:bg-slate-600 hover:text-white",
                       "block rounded-md px-3 py-2 text-base font-medium"
                     )
                   }
