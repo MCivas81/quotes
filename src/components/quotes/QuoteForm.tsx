@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import CustomTextarea from "../form/CustomTextarea";
 import CustomInput from "../form/CustomInput";
-import { QuoteFormValues } from "../../models/Quote/Quote.model";
-import { useAppDispatch } from "../../redux/hooks";
-import { addQuote } from "../../redux/reducers/quotesSlice";
+import { QuoteFormValues } from "../../types/Quote";
+import { useAppDispatch } from "../../state/hooks";
+import { addQuote } from "../../state/reducers/quotesSlice";
 
 const QuoteForm: React.FC = () => {
   const dispatch = useAppDispatch();

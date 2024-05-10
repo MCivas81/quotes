@@ -1,5 +1,5 @@
-import { useAppSelector } from "../redux/hooks";
-import { selectUserProfile } from "../redux/reducers/authSlice";
+import { useAppSelector } from "../state/hooks";
+import { selectUserProfile } from "../state/reducers/authSlice";
 
 const Home: React.FC = () => {
   const userProfile = useAppSelector(selectUserProfile);

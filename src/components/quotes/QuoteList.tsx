@@ -1,10 +1,10 @@
-import { Quote } from "../../models/Quote/Quote.model";
+import { Quote } from "../../types/Quote";
 import { useEffect, useState } from "react";
 import { debounce } from "lodash";
 import SearchBar from "./SearchBar";
 import QuoteItem from "./QuoteItem";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { deleteQuote, selectQuotes } from "../../redux/reducers/quotesSlice";
+import { useAppDispatch, useAppSelector } from "../../state/hooks";
+import { deleteQuote, selectQuotes } from "../../state/reducers/quotesSlice";
 import { BsBlockquoteLeft } from "react-icons/bs";
 
 const QuoteList: React.FC = () => {

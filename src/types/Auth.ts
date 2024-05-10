@@ -1,4 +1,4 @@
-import { UserProfile } from "../User/User.model";
+import { UserProfile } from "./User";
 
 export interface AuthResponse {
   access_token: string;

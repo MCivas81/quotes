@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import { useAppSelector } from "../../redux/hooks";
-import { selectIsLoggedIn } from "../../redux/reducers/authSlice";
+import { useAppSelector } from "../../state/hooks";
+import { selectIsLoggedIn } from "../../state/reducers/authSlice";
 
 interface PublicRouteProps {
   children: ReactNode;

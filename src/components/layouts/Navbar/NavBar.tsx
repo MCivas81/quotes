@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { logout, selectUserProfile } from "../../../redux/reducers/authSlice";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { logout, selectUserProfile } from "../../../state/reducers/authSlice";
+import { useAppDispatch, useAppSelector } from "../../../state/hooks";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { FaBars, FaXmark } from "react-icons/fa6";

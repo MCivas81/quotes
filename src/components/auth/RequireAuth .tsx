@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import { useAppSelector } from "../../redux/hooks";
-import { selectUserProfile } from "../../redux/reducers/authSlice";
+import { useAppSelector } from "../../state/hooks";
+import { selectUserProfile } from "../../state/reducers/authSlice";
 
 interface RequireAuthProps {
   children: ReactNode;

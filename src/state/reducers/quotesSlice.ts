@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Quote } from "../../models/Quote/Quote.model";
+import { Quote } from "../../types/Quote";
 import { RootState } from "../store";
 
 interface QuotesState {

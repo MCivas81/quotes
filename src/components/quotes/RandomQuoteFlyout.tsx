@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { FaChevronDown } from "react-icons/fa6";
 import { BsChatQuote } from "react-icons/bs";
-import { RandomQuote } from "../../models/Quote/Quote.model";
+import { RandomQuote } from "../../types/Quote";
 
 interface RandomQuoteFlyoutProps {
   isLoading: boolean;

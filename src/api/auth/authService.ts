@@ -1,5 +1,5 @@
-import { AuthResponse } from "../../models/Auth/Auth.model";
-import { UserProfile } from "../../models/User/User.model";
+import { AuthResponse } from "../../types/Auth";
+import { UserProfile } from "../../types/User";
 import axiosInstance from "./interceptors/axiosInstance";
 
 export const getAuthentication = async (email: string, password: string): Promise<AuthResponse> => {

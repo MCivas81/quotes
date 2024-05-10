@@ -1,5 +1,5 @@
 import { FaClipboardCheck, FaRegClipboard } from "react-icons/fa6";
-import { Quote } from "../../models/Quote/Quote.model";
+import { Quote } from "../../types/Quote";
 import useCopyToClipboard from "../../hooks/useCopyToClipboard";
 
 interface CopyToClipboardButtonProps {

@@ -1,11 +1,11 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useEffect, useState } from "react";
 import CustomInput from "../components/form/CustomInput";
-import { useAppDispatch } from "../redux/hooks";
+import { useAppDispatch } from "../state/hooks";
 import Spinner from "../components/layouts/spinner/Spinner";
-import { login } from "../redux/authAction";
+import { login } from "../state/authAction";
 import logo from "../assets/main-logo.png";
-import { LoginFormValues } from "../models/Auth/Auth.model";
+import { LoginFormValues } from "../types/Auth";
 
 const LoginPage: React.FC = () => {
   const dispatch = useAppDispatch();

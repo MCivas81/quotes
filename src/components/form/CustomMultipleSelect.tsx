@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { FaCheck, FaChevronDown, FaChevronUp } from "react-icons/fa6";
-import { OptionSelect } from "../../models/Form/Form.model";
+import { OptionSelect } from "../../types/Form";
 import { FieldError } from "react-hook-form";
 
 interface CustomMultipleSelectProps {

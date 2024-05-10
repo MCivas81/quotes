@@ -1,7 +1,7 @@
 import { Action } from "@reduxjs/toolkit";
 import { Dispatch } from "react";
 import { setAccessToken, setRefreshToken, setUserProfile } from "./reducers/authSlice";
-import { getAuthenticatedUser, getAuthentication } from "../apis/auth/authService";
+import { getAuthenticatedUser, getAuthentication } from "../api/auth/authService";
 
 export const login = (email: string, password: string) => {
   return async (dispatch: Dispatch<Action>) => {

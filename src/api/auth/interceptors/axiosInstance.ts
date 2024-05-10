@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
-import { store } from "../../../redux/store";
-import { logout, setAccessToken, setRefreshToken } from "../../../redux/reducers/authSlice";
-import { AuthResponse } from "../../../models/Auth/Auth.model";
+import { store } from "../../../state/store";
+import { logout, setAccessToken, setRefreshToken } from "../../../state/reducers/authSlice";
+import { AuthResponse } from "../../../types/Auth";
 
 const BASE_URL = "https://api.escuelajs.co/api/v1";
 

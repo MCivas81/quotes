@@ -1,5 +1,5 @@
 import { BsChatQuote } from "react-icons/bs";
-import { RandomQuote } from "../../models/Quote/Quote.model";
+import { RandomQuote } from "../../types/Quote";
 import { useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 

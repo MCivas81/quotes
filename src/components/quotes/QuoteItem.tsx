@@ -1,5 +1,5 @@
 import { FaQuoteLeft, FaQuoteRight, FaXmark } from "react-icons/fa6";
-import { Quote } from "../../models/Quote/Quote.model";
+import { Quote } from "../../types/Quote";
 import CopyToClipboardButton from "./CopyToClipboardButton";
 
 interface QuoteItemProps {

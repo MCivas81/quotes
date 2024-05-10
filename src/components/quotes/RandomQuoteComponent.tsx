@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { addQuote, selectQuotes } from "../../redux/reducers/quotesSlice";
-import { RandomQuote } from "../../models/Quote/Quote.model";
+import { useAppDispatch, useAppSelector } from "../../state/hooks";
+import { addQuote, selectQuotes } from "../../state/reducers/quotesSlice";
+import { RandomQuote } from "../../types/Quote";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import RandomQuoteFlyout from "./RandomQuoteFlyout";
 import RandomQuoteCard from "./RandomQuoteCard";

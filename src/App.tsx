@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
-import { store } from "./redux/store";
+import { store } from "./state/store";
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
-import RootLayout from "./components/layouts/RootLayout";
+import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 import QuotingPage from "./pages/QuotingPage";
 import Home from "./pages/Home";

@@ -1,7 +1,7 @@
-import { RootState } from "./../store";
+import { RootState } from "../store";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { UserProfile } from "../../models/User/User.model";
-import { AuthState } from "../../models/Auth/Auth.model";
+import { UserProfile } from "../../types/User";
+import { AuthState } from "../../types/Auth";
 
 const initialState: AuthState = {
   accessToken: null,
