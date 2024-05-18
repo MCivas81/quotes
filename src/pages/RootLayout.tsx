@@ -3,9 +3,9 @@ import NavBar from "../components/layouts/Navbar/NavBar";
 
 export default function RootLayout() {
   return (
-    <div className="h-screen sm:overflow-hidden">
+    <div className="h-screen flex flex-col">
       <NavBar />
-      <main className="h-[calc(100%-64px)] sm:overflow-auto">
+      <main className="flex-1 mt-16">
         <Outlet />
       </main>
     </div>

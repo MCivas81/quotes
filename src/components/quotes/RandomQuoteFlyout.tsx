@@ -22,7 +22,7 @@ const RandomQuoteFlyout: React.FC<RandomQuoteFlyoutProps> = ({
   fetchQuote,
 }) => {
   return (
-    <Popover className="relative mb-4 flex justify-center">
+    <Popover data-testid="random-quote-flyout" className="relative mb-4 flex justify-center">
       <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
         <div className="flex items-center space-x-2">
           <BsChatQuote className="h-5 w-5" />

@@ -9,10 +9,14 @@ interface QuoteItemProps {
 
 const QuoteItem: React.FC<QuoteItemProps> = ({ quote, onDelete }) => {
   return (
-    <li className="relative flex items-center justify-start rounded-md border border-slate-300 bg-slate-50 px-5 py-6 shadow-md">
+    <li
+      data-testid="quote-item"
+      className="relative flex items-center justify-start rounded-md border border-slate-300 bg-slate-50 px-5 py-6 shadow-md"
+    >
       <FaQuoteLeft className="absolute -left-3 -top-3 h-6 w-6 text-cyan-600" />
       <FaQuoteRight className="absolute -bottom-3 -right-3 h-6 w-6 text-cyan-600" />
       <FaXmark
+        data-testid="delete-button"
         className="absolute right-2 top-2 cursor-pointer"
         onClick={() => onDelete(quote.id)}
       />

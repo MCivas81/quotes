@@ -17,7 +17,7 @@ const QuoteForm: React.FC = () => {
   } = useForm<QuoteFormValues>();
 
   const handleSaveQuote = (quote: string, author: string) => {
-    dispatch(addQuote({ id: Date.now().toString(), text: quote, author }));
+    dispatch(addQuote({ id: String(Date.now()), text: quote, author }));
   };
 
   const onSubmit: SubmitHandler<QuoteFormValues> = (data: QuoteFormValues) => {
@@ -34,10 +34,11 @@ const QuoteForm: React.FC = () => {
 
   return (
     <form
+      data-testid="quote-form"
       onSubmit={handleSubmit(onSubmit)}
       className="mb-6 rounded-md border border-slate-300 bg-slate-200 shadow-md"
     >
-      <div className="space-y-4 border p-6">
+      <div className="space-y-4 border p-4 sm:p-6">
         <CustomTextarea
           placeholder="Enter a quote..."
           rows={3}
@@ -48,7 +49,7 @@ const QuoteForm: React.FC = () => {
           }}
           error={errors.quote}
           errorMessages={{
-            required: "Required field",
+            required: "This field is required",
           }}
         />
         <CustomInput

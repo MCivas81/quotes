@@ -77,7 +77,7 @@ const LoginPage: React.FC = () => {
                 label={"Email"}
                 error={errors.email}
                 errorMessages={{
-                  required: "Required field",
+                  required: "This field is required",
                   pattern: "Invalid email format",
                 }}
               />
@@ -93,7 +93,7 @@ const LoginPage: React.FC = () => {
                 label={"Password"}
                 error={errors.password}
                 errorMessages={{
-                  required: "Required field",
+                  required: "This field is required",
                 }}
               />
             </div>

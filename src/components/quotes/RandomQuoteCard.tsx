@@ -25,13 +25,18 @@ const RandomQuoteCard: React.FC<RandomQuoteCardProps> = ({
   return (
     <>
       {isCardClosed && (
-        <BsChatQuote
-          className="mb-4 h-6 w-6 cursor-pointer ml-auto"
+        <button
+          className="btn-secondary mb-4 ml-auto flex items-center justify-end space-x-2 !rounded-full !px-2 !py-2"
           onClick={() => setIsCardClosed(!isCardClosed)}
-        />
+        >
+          <BsChatQuote className="h-5 w-5" />
+        </button>
       )}
       {!isCardClosed && (
-        <div className="relative mb-6 rounded-lg border border-slate-300 bg-white p-6 shadow-md">
+        <div
+          data-testid="random-quote-card"
+          className="relative mb-6 rounded-lg border border-slate-300 bg-white p-6 shadow-md"
+        >
           <FaXmark
             className="absolute right-2 top-2 cursor-pointer"
             onClick={() => setIsCardClosed(!isCardClosed)}
