@@ -3,9 +3,9 @@ import axios from "axios";
 import { useAppDispatch, useAppSelector } from "../../state/hooks";
 import { addQuote, selectQuotes } from "../../state/reducers/quotesSlice";
 import { RandomQuote } from "../../types/Quote";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
 import RandomQuoteFlyout from "./RandomQuoteFlyout";
 import RandomQuoteCard from "./RandomQuoteCard";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const RandomQuoteComponent: React.FC = () => {
   const [randomQuote, setRandomdQuote] = useState<RandomQuote | null>(null);
@@ -13,8 +13,7 @@ const RandomQuoteComponent: React.FC = () => {
   const [error, setError] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const quotes = useAppSelector(selectQuotes);
-  const { width } = useWindowDimensions();
-  const IsScreenSizeSmall = width < 640;
+  const isMobile = useMediaQuery("(max-width: 639px)");
 
   const handleSaveQuote = (id: string, quote: string, author: string) => {
     dispatch(addQuote({ id: id, text: quote, author }));
@@ -39,7 +38,7 @@ const RandomQuoteComponent: React.FC = () => {
 
   const idExists = quotes.some((quote) => quote.id === randomQuote?._id);
 
-  return IsScreenSizeSmall ? (
+  return isMobile ? (
     <RandomQuoteFlyout
       isLoading={isLoading}
       error={error}
