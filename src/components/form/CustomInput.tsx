@@ -27,11 +27,16 @@ const CustomInput: React.FC<CustomInputProps> = ({
   };
 
   return (
-    <div>
-      <label htmlFor={register.name} className="block text-sm font-medium leading-6 text-gray-900">
-        {label}
-      </label>
-      <div className="relative mt-1">
+    <div className="custom-input">
+      {label && (
+        <label
+          htmlFor={register.name}
+          className="mb-1 block text-sm font-medium leading-6 text-gray-900"
+        >
+          {label}
+        </label>
+      )}
+      <div className="relative">
         <input
           id={register.name}
           autoComplete="on"

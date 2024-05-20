@@ -1,6 +1,7 @@
-import { FaQuoteLeft, FaQuoteRight, FaXmark } from "react-icons/fa6";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa6";
 import { Quote } from "../../types/Quote";
 import CopyToClipboardButton from "./CopyToClipboardButton";
+import { LuTrash2 } from "react-icons/lu";
 
 interface QuoteItemProps {
   quote: Quote;
@@ -11,20 +12,25 @@ const QuoteItem: React.FC<QuoteItemProps> = ({ quote, onDelete }) => {
   return (
     <li
       data-testid="quote-item"
-      className="relative flex items-center justify-start rounded-md border border-slate-300 bg-slate-50 px-5 py-6 shadow-md"
+      className="relative flex flex-col items-center justify-center rounded-md border border-slate-300 bg-slate-50 p-8 shadow-md"
     >
       <FaQuoteLeft className="absolute -left-3 -top-3 h-6 w-6 text-cyan-600" />
       <FaQuoteRight className="absolute -bottom-3 -right-3 h-6 w-6 text-cyan-600" />
-      <FaXmark
-        data-testid="delete-button"
-        className="absolute right-2 top-2 cursor-pointer"
-        onClick={() => onDelete(quote.id)}
-      />
-      <div className="mr-10 space-y-3">
-        <p className="text-gray-800">{quote.text}</p>
-        {quote.author && <p className="text-sm italic text-gray-600">- {quote.author}</p>}
+
+      <div className="w-full space-y-3 pb-6">
+        <p className="italic text-gray-600">{quote.text}</p>
       </div>
-      <CopyToClipboardButton quote={quote} />
+      <div className="flex w-full items-center justify-between border-t border-cyan-600 pt-4">
+        {quote.author && <p className="mr-2 text-sm text-gray-800">- {quote.author}</p>}
+        <div className="ml-auto flex items-center space-x-3">
+          <CopyToClipboardButton quote={quote} />
+          <LuTrash2
+            data-testid="delete-button"
+            className="cursor-pointer text-gray-800 hover:text-red-600"
+            onClick={() => onDelete(quote.id)}
+          />
+        </div>
+      </div>
     </li>
   );
 };

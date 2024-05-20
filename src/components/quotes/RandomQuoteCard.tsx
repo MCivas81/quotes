@@ -35,15 +35,15 @@ const RandomQuoteCard: React.FC<RandomQuoteCardProps> = ({
       {!isCardClosed && (
         <div
           data-testid="random-quote-card"
-          className="relative mb-6 rounded-lg border border-slate-300 bg-white p-6 shadow-md"
+          className="relative mb-6 rounded-lg border border-slate-300 bg-white px-8 py-6 shadow-md"
         >
           <FaXmark
-            className="absolute right-2 top-2 cursor-pointer"
+            className="absolute right-2.5 top-2.5 cursor-pointer"
             onClick={() => setIsCardClosed(!isCardClosed)}
           />
           <div className="mb-6 flex w-full items-center space-x-2 border-b-2 border-cyan-600 pb-2">
             <BsChatQuote className="h-5 w-5" />
-            <h2 className="text-xl font-semibold">Quote of the day</h2>
+            <h2 className="text-xl font-semibold">Quote of the Day</h2>
           </div>
           {isLoading ? (
             <p className="mb-8">Loading quote...</p>
@@ -51,15 +51,14 @@ const RandomQuoteCard: React.FC<RandomQuoteCardProps> = ({
             <div className="mb-8">Ooops...Something went wrong!</div>
           ) : (
             randomQuote && (
-              <div className="mb-8 space-y-3">
-                <p className="text-lg text-gray-800">{randomQuote.content}</p>
+              <div className="mb-8 space-y-4">
+                <p className="text-lg italic text-gray-800">{randomQuote.content}</p>
                 {randomQuote.author && (
-                  <p className="text-md italic text-gray-600">- {randomQuote.author}</p>
+                  <p className="text-md text-gray-600">- {randomQuote.author}</p>
                 )}
               </div>
             )
           )}
-
           <div className="flex justify-end">
             {randomQuote && (
               <button

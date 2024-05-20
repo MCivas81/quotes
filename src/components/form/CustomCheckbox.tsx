@@ -8,7 +8,7 @@ interface CustomCheckboxProps {
 }
 const CustomCheckbox: React.FC<CustomCheckboxProps> = ({ label, register, error }) => {
   return (
-    <div className="space-y-5">
+    <div className="custom-checkbox">
       <div className="relative flex items-start">
         <div className="flex h-6 items-center">
           <input
@@ -23,9 +23,9 @@ const CustomCheckbox: React.FC<CustomCheckboxProps> = ({ label, register, error 
           <label htmlFor={register.name} className="font-medium text-gray-900">
             {label}
           </label>
-          {error && <span className="block text-xs text-red-500">{error.message}</span>}
         </div>
       </div>
+      {error && <span className="mt-1 block text-xs text-red-500">{error.message}</span>}
     </div>
   );
 };

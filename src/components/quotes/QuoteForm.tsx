@@ -38,7 +38,7 @@ const QuoteForm: React.FC = () => {
       onSubmit={handleSubmit(onSubmit)}
       className="mb-6 rounded-md border border-slate-300 bg-slate-200 shadow-md"
     >
-      <div className="space-y-4 border p-4 sm:p-6">
+      <div className="space-y-4 border px-6 py-4 sm:px-8 sm:py-6">
         <CustomTextarea
           placeholder="Enter a quote..."
           rows={3}

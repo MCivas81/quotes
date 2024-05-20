@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { FaChevronDown } from "react-icons/fa6";
-import { BsChatQuote } from "react-icons/bs";
+import { BsChatQuote, BsCheckCircleFill, BsPlusCircleFill } from "react-icons/bs";
 import { RandomQuote } from "../../types/Quote";
 
 interface RandomQuoteFlyoutProps {
@@ -26,7 +26,7 @@ const RandomQuoteFlyout: React.FC<RandomQuoteFlyoutProps> = ({
       <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
         <div className="flex items-center space-x-2">
           <BsChatQuote className="h-5 w-5" />
-          <h2 className="text-xl font-semibold">Quote of the day</h2>
+          <h2 className="text-xl font-semibold">Quote of the Day</h2>
         </div>
         <FaChevronDown className="h-4 w-4" />
       </Popover.Button>
@@ -41,46 +41,46 @@ const RandomQuoteFlyout: React.FC<RandomQuoteFlyoutProps> = ({
         leaveTo="opacity-0 translate-y-1"
       >
         <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
-          <div className="mt-4 w-screen max-w-lg flex-auto overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-slate-300">
-            <div className="p-6">
-              {isLoading ? (
-                <p className="mb-8">Loading quote...</p>
-              ) : error ? (
-                <div className="mb-8">Ooops...Something went wrong!</div>
-              ) : (
-                randomQuote && (
-                  <div className="mb-8 space-y-3">
-                    <p className="text-lg text-gray-800">{randomQuote.content}</p>
+          <div className="mt-6 w-screen max-w-lg flex-auto overflow-hidden rounded-lg bg-white p-6 shadow-lg ring-1 ring-slate-300">
+            {isLoading ? (
+              <p className="mb-8">Loading quote...</p>
+            ) : error ? (
+              <div className="mb-8">Ooops...Something went wrong!</div>
+            ) : (
+              randomQuote && (
+                <div className="mb-8 space-y-4">
+                  <p className="text-lg italic text-gray-800">{randomQuote.content}</p>
+                  <div className="flex items-center justify-between">
                     {randomQuote.author && (
-                      <p className="text-md italic text-gray-600">- {randomQuote.author}</p>
+                      <p className="text-md mr-2 text-gray-600">- {randomQuote.author}</p>
                     )}
+                    <button
+                      className="rounded-full text-slate-600 disabled:text-green-500"
+                      onClick={() =>
+                        handleSaveQuote(
+                          randomQuote._id,
+                          randomQuote.content,
+                          randomQuote.author || ""
+                        )
+                      }
+                      disabled={idExists}
+                    >
+                      {idExists ? (
+                        <BsCheckCircleFill className="h-6 w-6" />
+                      ) : (
+                        <BsPlusCircleFill className="h-6 w-6" />
+                      )}
+                    </button>
                   </div>
-                )
-              )}
-              <div className="flex justify-end">
-                {randomQuote && (
-                  <button
-                    className="btn-secondary w-full !rounded-r-none"
-                    onClick={() =>
-                      handleSaveQuote(
-                        randomQuote._id,
-                        randomQuote.content,
-                        randomQuote.author || ""
-                      )
-                    }
-                    disabled={idExists}
-                  >
-                    {idExists ? "Already saved" : "Save"}
-                  </button>
-                )}
-                <button
-                  className={`btn-primary ${randomQuote ? "w-full !rounded-l-none" : ""}`}
-                  onClick={fetchQuote}
-                >
-                  New Quote
-                </button>
-              </div>
-            </div>
+                </div>
+              )
+            )}
+            <button
+              className={`btn-primary ${randomQuote ? "w-full sm:!rounded-l-none" : ""}`}
+              onClick={fetchQuote}
+            >
+              New Quote
+            </button>
           </div>
         </Popover.Panel>
       </Transition>
