@@ -6,7 +6,11 @@ const localStorageMiddleware: Middleware<object, any> = ({ getState }) => {
   return (next) => (action) => {
     const result = next(action);
     const authState = getState().auth;
-    localStorage.setItem("applicationState", JSON.stringify({ auth: authState }));
+    const quotesState = getState().quotes;
+    localStorage.setItem(
+      "applicationState",
+      JSON.stringify({ auth: authState, quotes: quotesState })
+    );
     return result;
   };
 };
